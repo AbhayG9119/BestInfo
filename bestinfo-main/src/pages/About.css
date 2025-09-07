@@ -1,12 +1,12 @@
 .about-page {
-  padding-top: 80px;
+  /* padding-top: 80px; */
 }
 
 /* Hero Section */
 .about-hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 100px 0;
+  padding: 100px ;
   text-align: center;
 }
 
@@ -34,6 +34,20 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .story-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .story-text {
+    order: 2;
+  }
+  .story-image {
+    order: 1;
+  }
 }
 
 .story-text h2 {
@@ -79,39 +93,58 @@
 .story-image {
   display: flex;
   justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.about-section-image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section-image:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .tech-illustration-large {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
 .floating-icon {
   font-size: 4rem;
   position: absolute;
   animation: float 3s ease-in-out infinite;
+  user-select: none;
 }
 
 .floating-icon:nth-child(1) {
-  top: 20%;
-  left: 20%;
+  top: 15%;
+  left: 15%;
   animation-delay: 0s;
 }
 
 .floating-icon:nth-child(2) {
   top: 60%;
-  right: 20%;
+  right: 15%;
   animation-delay: 1s;
 }
 
 .floating-icon:nth-child(3) {
-  bottom: 20%;
+  bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
   animation-delay: 2s;
@@ -368,5 +401,49 @@
   .team-section h2,
   .timeline-section h2 {
     font-size: 2rem;
+  }
+}
+
+.certificate-section {
+  padding: 60px 20px;
+  background: radial-gradient(circle at center, rgba(108,99,255,0.15), transparent 70%);
+  text-align: center;
+}
+
+.certificate-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.certificate-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.certificate-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.certificate-image {
+  max-width: 400px; /* desktop size limit */
+  width: 100%;
+  height: auto;
+  margin-right: 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.certificate-image:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .certificate-image {
+    max-width: 90%; /* mobile scaling */
   }
 }

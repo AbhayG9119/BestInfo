@@ -1,46 +1,66 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './AboutUs.css';
+import aboutImage from '../assets/about-sec.png';
 
 const AboutUs = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <section className="about-us-section">
+    <motion.section
+      className="about-us-section"
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+      viewport={{}}
+    >
       <div className="container">
-        <div className="about-content">
-          <div className="about-text">
-            <h2>About BestInfo Systems</h2>
+        <motion.div className="about-content" variants={containerVariants}>
+          <motion.div className="about-text" variants={itemVariants}>
+            <h2>About Best Infosystems Ltd.</h2>
             <p>
-              BestInfo Systems is a leading technology solutions provider dedicated to 
-              delivering innovative software development, IT consulting, and digital 
-              transformation services. With years of experience and a team of skilled 
-              professionals, we help businesses leverage technology to achieve their 
-              goals and stay ahead in the competitive market.
+              Best Infosystems Ltd. is a premier staffing and recruiting company based in Delhi, 
+              dedicated to connecting top talent with leading organizations. With over 26 years 
+              of experience, we specialize in IT, ITES, Banking, SCM, and Telecom sectors, providing 
+              customized recruitment solutions to meet the dynamic needs of our clients.
             </p>
             <div className="about-stats">
-              <div className="stat">
-                <h3>50+</h3>
-                <p>Projects Completed</p>
-              </div>
-              <div className="stat">
+              <motion.div className="stat" variants={itemVariants}>
+                <h3>145,000+</h3>
+                <p>Followers on LinkedIn</p>
+              </motion.div>
+              <motion.div className="stat" variants={itemVariants}>
+                <h3>1000+</h3>
+                <p>Successful Placements</p>
+              </motion.div>
+              <motion.div className="stat" variants={itemVariants}>
                 <h3>25+</h3>
-                <p>Happy Clients</p>
-              </div>
-              <div className="stat">
-                <h3>15+</h3>
-                <p>Expert Developers</p>
-              </div>
+                <p>Years of Experience</p>
+              </motion.div>
             </div>
-            <button className="btn-primary">Learn More About Us</button>
-          </div>
-          <div className="about-image">
-            <div className="tech-illustration">
-              <div className="tech-icon">💻</div>
-              <div className="tech-icon">🌐</div>
-              <div className="tech-icon">📱</div>
-            </div>
-          </div>
-        </div>
+            <button className="btn-primary" onClick={() => window.location.href='/about'}>
+              Learn More About Us
+            </button>
+          </motion.div>
+          <motion.div className="about-image" variants={itemVariants}>
+            <img src={aboutImage} alt="About Us" />
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
